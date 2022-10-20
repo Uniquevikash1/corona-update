@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #enter{
+            font-size: x-large;
+        }
+        .uk{
+           background-color: rgb(157, 137, 243);
+           font-size: larger;
+           border: 3px solid black;
+           border-radius: 2px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        #place{
+            height: 35px;
+            width: 500px;
+            font-size: larger;
+           
+        }
+        #btn
+        {
+            width: 100px;
+            height: 40px;
+            padding: 0px;
+            margin: 0px;
+        }
+        .container{
+           display: flex;
+           flex-direction: row;
+           border: 4px;
+        }
+        #map{
+            width: 1300px;
+            height: 900px;
+        }
+        #display{
+            height: 900px;
+            width: 600px;
+            background-color: rgb(144, 180, 247);
+        }
+        .details{
+            display: flex;
+            flex-direction: row;
+            font-size: x-large;
+            margin: 50px;
+            border: 4px solid black;
+            border-radius: 5px;
+        }
+        .name{
+            padding-left: 10px;
+        }
+        .infected{
+            padding-left: 10px;
+        }
+        .recovered{
+            padding-left: 10px;
+        }
+        .sick{
+            padding-left: 10px;
+        }
+        .dead{
+            padding-left: 10px;
+        }
+        .zone{
+            padding-left: 10px;
+        }
+        #name{
+            padding-left: 10px;
+        }
+        #infected{
+            padding-left: 10px;
+        }
+        #recovered{
+            padding-left: 10px;
+        }
+        #sick{
+            padding-left: 10px;
+        }
+        #dead{
+            padding-left: 10px;
+        }
+        #zone{
+            padding-left: 10px;
+        }
+        .image{
+            border: 4px solid black;
+            margin: 20px;
+            padding: 10px;
+            width: 520px;
+            height: 280px;
+        }
+        #image1{
+            
+            margin: 0px;
+            padding: 0px;
+            width: 520px;
+            height: 280px;
+        }
+    </style>
+    <title>Get updated with corona</title>
+</head>
+<body>
+       <div class="uk">
+           <span id="enter">Enter city:</span><input type="text" name="" id="place">
+           <button onclick="myfunction()" id="btn">Enter</button>
+       </div>
+  
+    <div class="container">
+        <div id='map'></div>
+        <div id="display">
+        <div class="details">
+            <div class="name">NAME: </div> 
+            <div id="name" ></div>
+        </div> 
+        <div class="details">
+            <div class="infected">INFECTED: </div> 
+            <div id="infected" ></div>
+        </div> 
+        <div class="details">
+            <div class="recovered">RECOVERED: </div> 
+            <div id="recovered" ></div>
+        </div> 
+        <div class="details">
+            <div class="sick">SICK: </div> 
+            <div id="sick" ></div>
+        </div> 
+        <div class="details">
+            <div class="dead">DEAD: </div> 
+            <div id="dead" ></div>
+        </div> 
+        <div class="details">
+            <div class="zone">ZONE: </div> 
+            <div id="zone" ></div>
+        </div> 
+        <div class="image">
+            <img src="https://media.istockphoto.com/photos/corona-virus-covid19-illustration-picture-id1297985631?s=612x612" alt="CORONA" id="image1">
+        </div>
+    </div>
+    </div>
+    
+</body>
+
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoidW5pcXVldmlrYXNoMSIsImEiOiJjbDhnd291ZWEwYmZxM3BtanJpYjRpdXJpIn0.b40o6W2u_RUQ6lKZ_6Gm9w';
+const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/dark-v10', // style URL
+    center: [0, 20], // starting position [lng, lat]
+    zoom: 1, // starting zoom
+    projection: 'globe' // display the map as a 3D globe
+});
+map.on('style.load', () => {
+    map.setFog({}); // Set the default atmosphere style
+});
+</script>
+
+
+
+
+
+<script src="index.js"></script>
+<script src="place.js"></script>
+</html>
+
